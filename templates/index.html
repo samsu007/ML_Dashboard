@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+
+
+  </head>
+  <body>
+
+    <h3><center>Exploratory Data Analysis</center></h3>
+    <br />
+    <form action="/" method="post" enctype="multipart/form-data">
+      <input type="file" id="form1" name="data_file" class="required" accept=".xls,.xlsx,.csv"/>
+      <input type="number" name="rows" class="required" />
+      <input id="btn" type="submit" />
+    </form>
+
+    
+    <br />
+
+    <table class="table">
+      {% for table in tables %}
+
+      <thead>
+        <tr>
+          {% for td in table %}
+          <th scope="col">{{td}}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      {% endfor %} {% for table in tableData %}
+
+      <tbody>
+        <tr>
+          {% for td in table %}
+          <td scope="col">{{td}}</td>
+          {% endfor %}
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+
+    <h6>Shape : {{shape}}</h6>
+    <br />
+    <h4>Descriptive statistics :</h4>
+    <br />
+    <table class="table">
+      {% for table in descriptive_head %}
+
+      <th scope="col">{{table}}</th>
+
+      {% endfor %} {% for table in descriptive_data %}
+
+      <tbody>
+        <tr>
+          {% for td in table %}
+          <td scope="col">{{td}}</td>
+          {% endfor %}
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+    <br />
+
+    <h4>Correlaton between Features :</h4>
+    <br />
+    <table class="table">
+      {% for table in corr_head %}
+
+      <th scope="col">{{table}}</th>
+
+      {% endfor %} {% for table in corr_data %}
+
+      <tbody>
+        <tr>
+          {% for td in table %}
+          <td scope="col">{{td}}</td>
+          {% endfor %}
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+    <br />
+
+    <h4>Data types and more information about the data :</h4>
+    <br />
+    <table class="table">
+      {% for table in info_head %}
+
+      <thead>
+        <tr>
+          {% for td in table %}
+          <th scope="col">{{td}}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      {% endfor %} {% for table in info_data %}
+
+      <tbody>
+        <tr>
+          {% for td in table %}
+          <td scope="col">{{td}}</td>
+          {% endfor %}
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+    <br />
+
+    <h4>Missing Value in the data:</h4>
+    <br />
+    <table class="table">
+       {% for table in missing_value %}
+
+      <tbody>
+        <tr>
+          {% for td in table %}
+          <td scope="col">{{td}}</td>
+          {% endfor %}
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+    <br />
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
